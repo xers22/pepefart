@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEPE FART</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        
+        /* General Styles */
+        body {
+            background-color: #121212;
+            color: #ff00ff;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Starry Background */
+        .stars {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: black;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .stars span {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            box-shadow: 0 0 5px white;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Title Animation */
+        h1 {
+            font-size: 2.5rem;
+            animation: flashTitle 1s infinite alternate;
+            display: inline-block;
+        }
+
+        @keyframes flashTitle {
+            0% { color: #ff00ff; }
+            100% { color: #ffcc00; }
+        }
+
+        /* Navigation Buttons */
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ffcc00;
+            font-size: 20px;
+            padding: 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover Effect */
+        .nav-links a:hover {
+            color: #121212;
+            background: #ffcc00;
+        }
+
+        .nav-links a:hover::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,0,255,1) 0%, rgba(0,255,255,0) 70%);
+            animation: flashEffect 1s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes flashEffect {
+            0% { background: radial-gradient(circle, rgba(255,0,255,1) 0%, rgba(0,255,255,0) 70%); }
+            25% { background: radial-gradient(circle, rgba(0,255,255,1) 0%, rgba(255,0,255,0) 70%); }
+            50% { background: radial-gradient(circle, rgba(255,255,0,1) 0%, rgba(0,255,0,0) 70%); }
+            75% { background: radial-gradient(circle, rgba(255,0,255,1) 0%, rgba(0,255,255,0) 70%); }
+            100% { background: radial-gradient(circle, rgba(0,255,255,1) 0%, rgba(255,0,255,0) 70%); }
+        }
+
+        /* Slider Section */
+        .slider {
+            margin: 20px auto;
+            width: 70%; /* Reduced width */
+            max-width: 500px; /* Set maximum width */
+            position: relative;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ffcc00, #00ff00);
+            background-size: 300% 100%;
+            animation: slideBackground 5s linear infinite;
+            padding: 20px; /* Reduced padding */
+            border-radius: 10px;
+        }
+
+        @keyframes slideBackground {
+            0% { background-position: 100% 0; }
+            100% { background-position: -100% 0; }
+        }
+
+        .slider-text {
+            font-size: 1.5rem; /* Reduced font size */
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+            animation: flashText 1.5s infinite alternate;
+        }
+
+        @keyframes flashText {
+            0% { color: #ff00ff; }
+            25% { color: #00ffff; }
+            50% { color: #ffcc00; }
+            75% { color: #00ff00; }
+            100% { color: #ff6699; }
+        }
+
+        /* Cover Image */
+        .image-container {
+            margin-top: 30px;
+            padding: 0 10px;
+        }
+
+        .image-container img {
+            width: 60%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Meowwww Text */
+        .meow-text {
+            font-size: 1.2rem;
+            margin-top: 40px;
+            padding: 15px;
+            animation: flashText 1s infinite alternate;
+        }
+
+        /* Image Grid */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            max-width: 90%;
+            margin: 20px auto;
+        }
+
+        .media-grid img {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .nav-links { flex-direction: column; }
+            .image-container img { width: 80%; }
+            .media-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.5rem; }
+            .nav-links a { font-size: 16px; padding: 12px 0; }
+            .media-grid { grid-template-columns: 1fr; }
+        }
+
+/* Tokenomics Section */
+    .tokenomics {
+        background: linear-gradient(135deg, #ff00ff, #ffcc00);
+        padding: 40px 5px; /* Added side padding */
+        border: 3px dashed #00ffff;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 600px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px #ff00ff, 0 0 30px #ffcc00;
+        animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { box-shadow: 0 0 20px #ff00ff, 0 0 30px #ffcc00; }
+        to { box-shadow: 0 0 40px #00ffff, 0 0 60px #ff6699; }
+    }
+
+    .tokenomics h2 {
+        font-size: 2rem;
+        color: #121212;
+        background: #ffcc00;
+        padding: 20px; /* Increased padding */
+        border-radius: 10px;
+        margin-bottom: 15px;
+        animation: flashText 1s infinite alternate;
+    }
+
+    .tokenomics p {
+        font-size: 0.9rem;
+        color: #ffffff;
+        margin: 10px 0;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 15px; /* Increased padding */
+        border-radius: 8px;
+        text-shadow: 2px 2px #ff00ff;
+    }
+
+    @media (max-width: 480px) {
+        .tokenomics {
+            padding: 30px 5px; /* Reduced side padding for smaller screens */
+        }
+        .tokenomics h2 {
+            font-size: 1.5rem;
+        }
+        .tokenomics p {
+            font-size: 0.8rem;
+        }
+    }
+
+    </style>
+</head>
+<body>
+    <div class="stars">
+        <script>
+            const starsContainer = document.querySelector(".stars");
+            for (let i = 0; i < 100; i++) {
+                let star = document.createElement("span");
+                let size = Math.random() * 3;
+                star.style.width = ${size}px;
+                star.style.height = ${size}px;
+                star.style.top = ${Math.random() * 100}vh;
+                star.style.left = ${Math.random() * 100}vw;
+                starsContainer.appendChild(star);
+            }
+        </script>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="ThemeSong.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function playMusicOnClick() {
+            const audio = document.getElementById("bg-music");
+            audio.play().catch(error => console.error("Autoplay failed:", error));
+            document.removeEventListener("click", playMusicOnClick);
+        }
+        document.addEventListener("click", playMusicOnClick);
+    </script>
+
+    <div class="container">
+        <h1>PEPE FART</h1>
+
+        <!-- Slider Section -->
+        <div class="slider">
+            <div class="slider-text">MAKE ME $PHART</div>
+        </div>
+
+        <div class="nav-links">
+            <a href="buy.html">Buy</a>
+            <a href="telegram.html">Telegram</a>
+            <a href="twitter.html">Twitter</a>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <img src="https://i.ibb.co/Ldd2Prxt/image-1.png" alt="image-1" border="0" alt="cover-fart">
+    </div>
+
+    <div class="tokenomics">
+ 	   <h2>Tokenomics</h2>
+	    <p>Total Supply: 1 Billion</p>
+	    <p>LP: 100% Burned</p>
+	    <p>Tax Free</p>
+	    <p>Traded on Solana</p>
+    </div>
+
+    <div class="meow-text">Don't hold back, PHART it out</div>
+
+    <div class="media-grid">
+	<img src="https://i.ibb.co/G4wxKDm7/image.png" alt="image 1">
+	<img src="https://i.ibb.co/84X257Th/fart1.png" alt="image 2">
+    </div>
+</body>
+</html>
+
